@@ -1,3 +1,5 @@
+package Algoritmos;
+
 
 import javax.swing.JOptionPane;
 
