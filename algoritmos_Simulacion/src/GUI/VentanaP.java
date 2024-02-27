@@ -5,6 +5,9 @@
 package GUI;
 
 import Algoritmos.Cuadrados_Medios;
+import static Algoritmos.productos_Medios.cantidadNumeros;
+import static Algoritmos.productos_Medios.comprobarSemillas;
+import static Algoritmos.productos_Medios.generarPseudoAl;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
@@ -42,6 +45,7 @@ public class VentanaP extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAlgoritmo = new javax.swing.JMenu();
         jMenuItem_CuadradosMedios = new javax.swing.JMenuItem();
+        jCheckBoxMenuItemPm = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 0, 51));
@@ -112,6 +116,15 @@ public class VentanaP extends javax.swing.JFrame {
         });
         jMenuAlgoritmo.add(jMenuItem_CuadradosMedios);
 
+        jCheckBoxMenuItemPm.setSelected(true);
+        jCheckBoxMenuItemPm.setText("Productos Medios");
+        jCheckBoxMenuItemPm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItemPmActionPerformed(evt);
+            }
+        });
+        jMenuAlgoritmo.add(jCheckBoxMenuItemPm);
+
         jMenuBar1.add(jMenuAlgoritmo);
 
         setJMenuBar(jMenuBar1);
@@ -159,6 +172,17 @@ public class VentanaP extends javax.swing.JFrame {
         jTextAreaNumerosGenerados.setBorder(titledBorder);
     }//GEN-LAST:event_jMenuItem_CuadradosMediosActionPerformed
 
+    private void jCheckBoxMenuItemPmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemPmActionPerformed
+        comprobarSemillas(txtSemilla1.getText(),txtSemilla2.getText());
+        generarPseudoAl(cantidadNumeros);
+        // Actualiza el JTextArea y el borde con el título "Productos Medios"
+        jTextAreaNumerosGenerados.setText(resultados.toString());
+        TitledBorder border = BorderFactory.createTitledBorder("Productos Medios");
+        border.setTitleJustification(TitledBorder.CENTER);
+        border.setTitlePosition(TitledBorder.TOP);
+        jTextAreaNumerosGenerados.setBorder(border);
+    }//GEN-LAST:event_jCheckBoxMenuItemPmActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,6 +219,7 @@ public class VentanaP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItemPm;
     private javax.swing.JMenu jMenuAlgoritmo;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_CuadradosMedios;
