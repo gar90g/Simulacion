@@ -5,9 +5,7 @@
 package GUI;
 
 import Algoritmos.Cuadrados_Medios;
-import static Algoritmos.productos_Medios.cantidadNumeros;
-import static Algoritmos.productos_Medios.comprobarSemillas;
-import static Algoritmos.productos_Medios.generarPseudoAl;
+import Algoritmos.productos_Medios;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
@@ -173,10 +171,9 @@ public class VentanaP extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem_CuadradosMediosActionPerformed
 
     private void jCheckBoxMenuItemPmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItemPmActionPerformed
-        comprobarSemillas(txtSemilla1.getText(),txtSemilla2.getText());
-        generarPseudoAl(cantidadNumeros);
-        // Actualiza el JTextArea y el borde con el título "Productos Medios"
-        jTextAreaNumerosGenerados.setText(resultados.toString());
+        productos_Medios pm = new productos_Medios();
+        pm.comprobarSemillas(txtSemilla1.getText(),txtSemilla2.getText());
+        jTextAreaNumerosGenerados.setText(pm.generarPseudoAl(Integer.parseInt(txtCant.getText())));
         TitledBorder border = BorderFactory.createTitledBorder("Productos Medios");
         border.setTitleJustification(TitledBorder.CENTER);
         border.setTitlePosition(TitledBorder.TOP);

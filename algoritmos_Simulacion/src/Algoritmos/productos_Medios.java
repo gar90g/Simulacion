@@ -19,7 +19,7 @@ public class productos_Medios {
     public static int cantidadNumeros;
     private static Set<String> numerosGenerados = new HashSet<>();
 
-    public static void comprobarSemillas(String sm1,String sm2) {
+    public  void comprobarSemillas(String sm1,String sm2) {
         semilla1 = sm1;
         semilla2 = sm2;
         if (semilla1.length() > 3 && semilla2.length() > 3 && semilla1.length() == semilla2.length()) {
@@ -30,10 +30,10 @@ public class productos_Medios {
         }
     }
 
-    public static void generarPseudoAl(int cant) {
+    public  String generarPseudoAl(int cant) {
         StringBuilder resultados = new StringBuilder(); // Usa StringBuilder para acumular los números
         numerosGenerados.clear(); // Limpia el conjunto para una nueva generación
-
+        cantidadNumeros = cant; // Asegúrate de actualizar cantidadNumeros con el valor de cant
         for (int i = 0; i < cantidadNumeros; i++) {
             int longitudSemilla = semilla1.length();
             long producto = Long.parseLong(semilla1) * Long.parseLong(semilla2);
@@ -56,6 +56,7 @@ public class productos_Medios {
             semilla1 = semilla2;
             semilla2 = Y;
         }
+        return resultados.toString();
     }
 
 }
